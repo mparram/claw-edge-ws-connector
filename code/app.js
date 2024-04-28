@@ -1,5 +1,4 @@
 const port = process.env.PORT || 8080;
-const cliport = process.env.CLI_PORT || 443;
 const wsmanager = process.env.WS_MANAGER || "ws.rciots.com";
 const { Server } = require("socket.io");
 const socketcli = require("socket.io-client");
@@ -54,5 +53,7 @@ ioclient.on("control", (control, act) => {
   controller.emit("control", control, act);
 });
 ioclient.on("user_on", (status) => {
-  controller.emit("user_on", status);
-});
+  if (controller != "") {
+    controller.emit("user_on", status);
+  }
+  });
