@@ -47,6 +47,9 @@ io.on('connection', (socket) => {
   socket.on("video", (data) => {
     ioclient.emit("video", data);
   });
+  socket.on("color", (data) => {
+    ioclient.emit("color", data);
+  });
 });
 ioclient.on("control", (control, act) => {
   console.log("control: " + control + "act: " + act);
