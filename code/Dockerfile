@@ -6,8 +6,6 @@ COPY package.json /app
 RUN npm install
 RUN npm cache clean --force 
 COPY . /app
-RUN dnf upgrade -y
-RUN dnf clean all
 USER 1001
 EXPOSE 8080
 CMD npm start
