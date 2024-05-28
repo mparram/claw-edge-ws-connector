@@ -61,8 +61,9 @@ ioclient.on("panic", () => {
   controller.emit("panic");
 });
 ioclient.on("user_on", (status) => {
+  console.log("user_on: " + status);
   if (controller != "") {
-    console.log("user_on: " + status);
+
     controller.emit("user_on", status);
   }
   });
